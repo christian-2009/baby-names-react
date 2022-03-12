@@ -1,12 +1,14 @@
 interface BabyInfo {
     name: string
+    sex: string
 }
 
 
 export default function BabyName(props: BabyInfo): JSX.Element{
     return(
         <>
-            <p className='.inline'>{props.name}</p>
+            {props.sex === 'f' && <p className='female-style'>{props.name}</p>}
+            {props.sex === 'm' && <p className ='male-style'>{props.name}</p>}
         </>
     )
 }
