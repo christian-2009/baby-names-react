@@ -1,5 +1,5 @@
 import { greet } from "./utils/greet";
-import MainContent from "./utils/MainContent";
+import MainContent from "./ components/MainContent";
 
 
 function App(): JSX.Element {
