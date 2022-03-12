@@ -1,8 +1,8 @@
 import BabyName from "./BabyName";
-import {babyData} from '../data'
+import { sortedBabyData } from "./sortedBabyData";
 
 export default function MainContent(): JSX.Element{
-    const listItems = babyData.map(BabyName)
+    const listItems = sortedBabyData.map(BabyName)
     return (
         <>
             <h1 className='title'>Babynames</h1>
