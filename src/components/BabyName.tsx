@@ -1,19 +1,22 @@
 interface BabyInfo {
-    name: string
-    sex: string
-    id: number
+  name: string;
+  sex: string;
+  id: number;
 }
 
-
-export default function BabyName(props: BabyInfo): JSX.Element{
-        return (
-           <>
-            <div key = {props.id}>
-            {props.sex === 'f' && <button  className='female-style'>{props.name}</button>}
-            {props.sex === 'm' && <button  className='male-style'>{props.name}</button>}
-            </div>
-           </>
-        )
+export default function BabyName(props: BabyInfo): JSX.Element {
+  return (
+    <>
+      <div key={props.id}>
+        {props.sex === "f" && (
+          <button className="female-style">{props.name}</button>
+        )}
+        {props.sex === "m" && (
+          <button className="male-style">{props.name}</button>
+        )}
+      </div>
+    </>
+  );
 }
 
 /* 
