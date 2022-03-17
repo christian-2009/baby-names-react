@@ -33,3 +33,15 @@ body {
     color: #36454F
 }
 
+input {
+    text-align: center;
+    
+}
+
+
+
+.flex {
+    display: flex;
+    justify-content: center;
+    
+}
