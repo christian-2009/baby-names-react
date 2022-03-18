@@ -1,6 +1,5 @@
 import { sortedBabyData } from "../utils/sortedBabyData";
 import React, { useState } from "react";
-import BabyName from "./BabyName";
 
 interface BabyInfo {
   id: number;
@@ -18,14 +17,23 @@ export default function MainContent(): JSX.Element {
 
   const favouriteBabyNames = favourites.map((babyObj) => {
     return (
-      <div className={"babyname " + babyObj.sex} key={babyObj.id}>
+      <button
+        className={"babyname " + babyObj.sex}
+        key={babyObj.id}
+        onClick={() =>
+          setFavourites(
+            favourites.filter((currentObj) => currentObj !== babyObj)
+          )
+        }
+      >
         {babyObj.name}
-      </div>
+      </button>
     );
   });
 
-  const favouriteFilteredBabyNames = filteredBabyNames.filter((obj) => 
-    !([...favourites].includes(obj)))
+  const favouriteFilteredBabyNames = filteredBabyNames.filter(
+    (obj) => ![...favourites].includes(obj)
+  );
 
   const babyNames = favouriteFilteredBabyNames.map((babyObj: BabyInfo) => {
     return (
@@ -58,8 +66,8 @@ export default function MainContent(): JSX.Element {
           Delete
         </button>
       </div>
-      <hr />
       <div className="flex">FAVOURITES: {favouriteBabyNames}</div>
+      <hr />
       <div className="flex">{babyNames}</div>
     </>
   );
