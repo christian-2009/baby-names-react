@@ -25,9 +25,9 @@ export default function MainContent(): JSX.Element {
   });
 
   const favouriteFilteredBabyNames = filteredBabyNames.filter((obj) => 
-    [...favourites].includes(obj))
+    !([...favourites].includes(obj)))
 
-  const babyNames = filteredBabyNames.map((babyObj: BabyInfo) => {
+  const babyNames = favouriteFilteredBabyNames.map((babyObj: BabyInfo) => {
     return (
       <button
         className={"babyname " + babyObj.sex}
