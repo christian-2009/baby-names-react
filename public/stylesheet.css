@@ -1,30 +1,38 @@
 body {
     margin: 0 auto;
     text-align: center;
-    width: 1700px;
+    width: 2000px;
     background-color: #ffffe0;
 }
 
-.male-style {
-    display:inline-block;
+.babyname {
     font-size: 25px;
     padding: 10px;
-    margin: 8px 8px;
-    background-color: #bfe6ff;
+    margin: 6px 6px;
     border-radius: 10px;
-    color: #0da2ff
+    border: none;
 }
 
-.female-style {
-    display:inline-block;
-    font-size: 25px;
-    padding: 10px;
-    background-color: lightpink;
-    margin: 8px 8px;
-    border-radius: 10px;
-    color: #AA336A
+.m{
+    background-color: #bfe6ff;
+    color: #0da2ff;
     
 }
+
+.f {
+    background-color: lightpink;
+    color: #AA336A;
+
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0px auto;
+    justify-content: center;
+}
+
 
 .title {
     margin: 0px auto;
@@ -32,4 +40,17 @@ body {
     font-size: 50px;
     color: #36454F
 }
+
+input {
+    text-align: center;
+    
+    
+}
+
+/* .delete {
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+} */
+
 
