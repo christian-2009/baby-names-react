@@ -2,43 +2,42 @@ import { sortedBabyData } from "../utils/sortedBabyData";
 import React, { useState } from "react";
 import BabyName from "./BabyName";
 
+interface BabyInfo {
+  id: number;
+  name: string;
+  sex: string;
+}
+
 export default function MainContent(): JSX.Element {
   const [text, setText] = useState("");
-  const [array, setArray] = useState<string[]>([])
+  const [favourites, setFavourites] = useState<BabyInfo[]>([]);
 
   const filteredBabyNames = sortedBabyData.filter((obj) =>
     obj.name.toLowerCase().includes(text.toLowerCase())
   );
 
-
-  const babyNames = filteredBabyNames.map((babyObj) => {
+  const favouriteBabyNames = favourites.map((babyObj) => {
     return (
-        <button className={"babyname " + babyObj.sex} key={babyObj.id}>{babyObj.name}</button>
-    )})
-//     if (babyObj.sex === "f") {
-//       return (
-//         <button className="female-style" key={babyObj.id} onClick={handleNameArray}>
-//           {babyObj.name}
-//         </button>
-//       );
-//     } else {
-//       return (
-//         <button className="male-style" key={babyObj.id} onClick={handleNameArray}>
-//           {babyObj.name}
-//         </button>
-//       );
-//     }
-//   });
-//   return (
-//       <button className="babyname" + {babyObj.sex}>{babyObj.name}</button>
-//   )
+      <div className={"babyname " + babyObj.sex} key={babyObj.id}>
+        {babyObj.name}
+      </div>
+    );
+  });
 
+  const favouriteFilteredBabyNames = filteredBabyNames.filter((obj) => 
+    [...favourites].includes(obj))
 
-//   const babyNames = filteredBabyNames.map(BabyName)
-
-//   const handleNameArray = () => {
-//       setArray([... array, ])
-//   }
+  const babyNames = filteredBabyNames.map((babyObj: BabyInfo) => {
+    return (
+      <button
+        className={"babyname " + babyObj.sex}
+        key={babyObj.id}
+        onClick={() => setFavourites([...favourites, babyObj])}
+      >
+        {babyObj.name}
+      </button>
+    );
+  });
 
   const handleDelete = () => {
     setText("");
@@ -55,10 +54,13 @@ export default function MainContent(): JSX.Element {
             setText(event.target.value);
           }}
         />
-        <button onClick={handleDelete}>Delete</button>
+        <button onClick={handleDelete} className="delete">
+          Delete
+        </button>
       </div>
-      <div style={{display:"inline-block"}}>{babyNames}</div>
-
+      <hr />
+      <div className="flex">FAVOURITES: {favouriteBabyNames}</div>
+      <div className="flex">{babyNames}</div>
     </>
   );
 }
